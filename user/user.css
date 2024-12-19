@@ -1,0 +1,69 @@
+#pageContainer
+{
+	display: table;
+}
+
+#sideMenu
+{
+	display: table-cell;
+	width: 20%;
+	padding: 0 30px;
+    text-align: center;
+}
+
+.menuItem
+{
+	display: block;
+	background-color: #333;
+	font-weight: bold;
+	text-decoration: none;
+	color: white;
+	padding: 25px;
+	margin: 20px 0;
+}
+
+.menuItem:hover
+{
+	background-color: #339;
+}
+
+#profileBlock
+{
+	padding: 30px;
+	background-color: #EEF;
+	font-weight: bold;
+}
+
+#profileBlock img
+{
+	width: 70%;
+	padding-bottom: 20px;
+}
+
+#userContent
+{
+	display: table-cell;
+	padding: 0 5%;
+}
+
+#redStatus, #yellowStatus, #greenStatus
+{
+	padding: 10px;
+	margin: 10px 0;
+}
+
+#yellowStatus
+{
+	background-color: #EE0;
+}
+
+#redStatus
+{
+	background-color: #E44;
+	color: white;
+}
+
+#greenStatus
+{
+	background-color: #8F8;
+}

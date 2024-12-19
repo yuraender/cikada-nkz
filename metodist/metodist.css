@@ -1,0 +1,47 @@
+#pageContainer
+{
+	display: table;
+}
+
+#sideMenu
+{
+	display: table-cell;
+	width: 20%;
+	padding: 0 30px;
+    text-align: center;
+}
+
+.menuItem
+{
+	display: block;
+	background-color: #DDD;
+	font-weight: bold;
+	text-decoration: none;
+	color: #333;
+	padding: 25px;
+	margin: 20px 0;
+}
+
+.menuItem:hover
+{
+	background-color: #9F9;
+}
+
+#profileBlock
+{
+	padding: 30px;
+	background-color: #EFE;
+	font-weight: bold;
+}
+
+#profileBlock img
+{
+	width: 70%;
+	padding-bottom: 20px;
+}
+
+#userContent
+{
+	display: table-cell;
+	padding: 0 5%;
+}

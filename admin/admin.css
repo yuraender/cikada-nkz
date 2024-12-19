@@ -1,0 +1,33 @@
+body
+{
+	background-color: #282828;
+	padding: 1% 5%;
+	color: #0E0;
+}
+
+a
+{
+	color: white;
+
+}
+
+a:hover
+{
+	color: #0E0;
+}
+
+table, th, td
+{
+	border: 1px solid #0E0;
+}
+
+th, td
+{
+	padding: 5px 20px;
+}
+
+tr:hover
+{
+	color: black;
+	background-color: #0E0;
+}
