@@ -43,8 +43,6 @@
 			<th>Город</th>
 			<th>Школа</th>
 			<th>Класс</th>
-			<th>ЯП</th>
-			<th>3 часть</th>
   			<th>Телефон</th>
   			<th>Почта</th>
   			<th>Заявка</th>
@@ -72,7 +70,7 @@
 					LEFT JOIN PersonalData ON User.id = PersonalData.u_id
     				LEFT JOIN School ON school_id = School.id
     				WHERE User.status > 2 AND User.status < 6 {$where_status} {$where_grade}
-  					ORDER BY status, scan_status, var_part, programming_languages, lname, fname, patronym, register_date DESC
+  					ORDER BY status, scan_status, lname, fname, patronym, register_date DESC
   			");
 
   			$idx = 1;
@@ -98,18 +96,6 @@
 				printf ("<td>%s</td>", $row["name"]);
 				printf ("<td>%s</td>", $row["grade"]);
 
-				printf ("<td>%s</td>", $row["programming_languages"]);
-
-				echo "<td>";
-				switch ($row['var_part']) {
-					case 1: echo "Робототехника";
-					break;
-					case 2: echo "Программирование";
-					break;
-					case 3: echo "Графика";
-				}
-
-
 				printf ("<td>%s</td>", $row["phone"]);
 				printf ("<td>%s</td>", $row["email"]);
 
@@ -121,6 +107,7 @@
 					break;
 					case 5: echo "отклонено";
 				}
+				echo "</td>";
 			}
   			?>
 

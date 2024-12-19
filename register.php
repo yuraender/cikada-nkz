@@ -49,7 +49,7 @@
 	<div id="olimpLogo">
 		<h1>Регистрация участника</h1>
 		<a href="/">
-			<img src="images/polyolymp_logo.svg" align="right">
+			<img height="90" src="images/wings.png" align="right">
 		</a>
 	</div>
 
@@ -99,7 +99,7 @@
 			<input required type="password" name="password" placeholder="Пароль">
 			<br>
 			<span style="font-size: 14px; color: #999;">
-			Пароль должен быть длинной как минимум 8 знаков <br> и содержать цифры и буквы<br>
+			Пароль должен быть длиной как минимум 8 знаков <br> и содержать цифры и буквы<br>
 			</span>
 			<br>
 

@@ -145,18 +145,6 @@ $result = mysqli_query($ctn, "SELECT * FROM User WHERE id = '{$userid}' ");
 				echo "<td>" . $pData['teacherIKT'];
 				echo "<tr><td>Классный руководитель";
 				echo "<td>" . $pData['classTeacher'];
-				echo "<tr><td>Язык программирования";
-				echo "<td><b>" . $pData['programming_languages'] . "</b>";
-				echo "<tr><td>3 часть";
-				echo "<td><b>";
-				switch ($pData['var_part']) {
-					case 1: echo "Робототехника";
-					break;
-					case 2: echo "Программирование";
-					break;
-					case 3: echo "Графика";
-				}
-				echo "</b>";
 			?>
 			</table>
 

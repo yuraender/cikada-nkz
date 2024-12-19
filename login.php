@@ -48,7 +48,7 @@
 <head>
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="style.css">
-	<title>Политехническая олимпиада школьников</title>
+	<title>Олимпиада «На крыльях знаний»</title>
 </head>
 <body>
 

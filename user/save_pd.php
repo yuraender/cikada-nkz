@@ -43,18 +43,6 @@
 		$result = mysqli_query($ctn,"DELETE FROM PersonalData WHERE u_id={$user['id']}");
 	}
 
-	$var_part_value = 0;
-	if ( isset($_POST['third_part']) ) {
-		switch ( $_POST['third_part'] ) {
-			case 'robotics': $var_part_value = 1;
-			break;
-			case 'programming': $var_part_value = 2;
-			break;
-			case 'graphics': $var_part_value = 3;
-			break;
-		}
-	}
-
 
 	// Добавление новой записи в таблицу
 
@@ -74,9 +62,7 @@
 			phoneParent,
 			nameParent,
 			teacherIKT,
-			classTeacher,
-			programming_languages,
-			var_part
+			classTeacher
 		)
 		VALUES (
 			{$user['id']},
@@ -93,9 +79,7 @@
 			'{$_POST['phoneParent']}',
 			'{$_POST['nameParent']}',
 			'{$_POST['teacherIKT']}',
-			'{$_POST['classTeacher']}',
-			'{$_POST['prog_lang']}',
-			{$var_part_value}
+			'{$_POST['classTeacher']}'
 
 		);
 	");
@@ -111,7 +95,7 @@
 		exit;
 
 	} else {
-		echo 'Произошла ошибка при записи в БД';
+		echo 'Произошла ошибка при записи в БД' . mysqli_error($ctn);
 	}
 
 ?>

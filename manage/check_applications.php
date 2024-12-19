@@ -43,7 +43,7 @@
 
 		<h2>Заявки участников</h2>
 
-		<a href="https://olympiad.lobanov.site/manage/check_applications.php?status=5">Вывести отклонённые</a>
+		<a href="?status=6">Вывести отклонённые</a>
 		<br><br>
 
 		<table id="list_table">

@@ -17,5 +17,8 @@
 	<a href="result_list.php" class="menuItem">Таблица результатов</a>
 	<a href="/logout.php" class="menuItem">Выход</a>
 	<br>
-	<a target="_blank" href="/admin">Админка</a>
+	<?php
+		if ($user['status'] == 1)
+			echo '<a target="_blank" href="/admin">Админка</a>';
+	?>
 </div>

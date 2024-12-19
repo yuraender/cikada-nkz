@@ -16,13 +16,14 @@
 	  $ctn = mysqli_connect(DB_SERVER, DB_USER, DB_PASSWORD, DB_DATABASE) or die( mysqli_error() );
 	  mysqli_set_charset($ctn, "utf8");
 
-	  $result = mysqli_query($ctn, "SELECT * FROM User order by id DESC");
+	  $result = mysqli_query($ctn, "SELECT * FROM User order by id ASC");
 
 	  echo '<h2>Количество пользователей: ';
 	  echo mysqli_num_rows($result);
 	  echo '</h2> <br>';
 
 	  echo '<table>
+	  <th>ID</th>
 	  <th>Фамилия</th>
 	  <th>Имя</th>
 	  <th>Отчество</th>
@@ -32,6 +33,7 @@
 
 	  while ($row = mysqli_fetch_assoc($result)) {
 	    echo '<tr>';
+	    printf ("<td>%s</td>\n", $row["id"]);
 	    printf ("<td>%s</td>\n", $row["lname"]);
 	    printf ("<td>%s</td>\n", $row["fname"]);
 	    printf ("<td>%s</td>\n", $row["patronym"]);

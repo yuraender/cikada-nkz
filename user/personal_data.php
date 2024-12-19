@@ -254,42 +254,6 @@ require_once 'user_pd_from_db.php';
 				<?php if ( isset($pData) ) echo 'value="'.$pData['classTeacher'].'"'; ?> >
 			<br>
 
-			<h3> Интересы </h3>
-
-			Укажите <b>языки программирования</b>,<br>которые предполагаете использовать на Олимпиаде:<br>
-			<input  id="prog_lang" name="prog_lang" type="text" placeholder="Например: Pascal" class="form-control"
-				<?php if ( isset($pData) ) echo 'value="'.$pData['programming_languages'].'"'; ?> >
-			
-			<br><br>
-
-			<?php if ( isset($pData) AND ( preg_match("/10/", $pData['grade'])  OR  preg_match("/11/", $pData['grade']) ) ) 
-			{ ?>
-
-			Укажите, задание по какой теме будете выполнять в 3 части:<br>
-			<input type="radio" id="robotics"
-		     name="third_part" value="robotics" 
-		     <?php if ( isset($pData) && $pData['var_part'] == 1  ) echo ' checked="true"'; ?>
-		    >
-		    <label for="robotics">Робототехника (платформа Arduino)</label>
-		    <br>
-
-		    <input type="radio" id="programming"
-		     name="third_part" value="programming"
-		     <?php if ( isset($pData) && $pData['var_part'] == 2  ) echo ' checked="true"'; ?>
-		    >
-		    <label for="programming">Программирование</label>
-		    <br>
-
-		    <input type="radio" id="graphics"
-		     name="third_part" value="graphics"
-		     <?php if ( isset($pData) && $pData['var_part'] == 3  ) echo ' checked="true"'; ?>
-		    >
-		    <label for="graphics">Компьютерная графика и черчение</label>
-			<br>
-			<?php
-			}
-			?>
-
 
 			<input type="submit" <?php if ($user['status'] < 5) echo ' disabled="disabled" '; ?> value="Сохранить">
 

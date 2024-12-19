@@ -85,7 +85,7 @@ require_once 'user_pd_from_db.php';
 			}
 
 			?>
-			<h1>Заявка на участие</h1>
+			<h2>Заявка на участие</h2>
 
 			<h3>1. Скачайте заявку</h3>
 
@@ -120,7 +120,7 @@ require_once 'user_pd_from_db.php';
 				
 			$ok = 0;
 
-			$all_ok = 17;
+			$all_ok = 15;
 
 			if ( $user['lname'] != ""  )  $ok++;
 			if ( $user['fname'] != ""  )  $ok++;
@@ -139,8 +139,7 @@ require_once 'user_pd_from_db.php';
 				if ( $School['town'] != ""  )  $ok++;
 				if ( $School['name'] != ""  )  $ok++;
 			}
-			if ( $pData['programming_languages'] != ""  )  $ok++;
-			if ( ( $pData['var_part'] != 0 ) OR ( $pData['grade'] < 10 ) )  $ok++;
+			if ( $pData['grade'] < 10 )  $ok++;
 			
 			echo "Заполнено полей анкеты: <b>";
 			echo $ok;

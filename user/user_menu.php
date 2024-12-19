@@ -34,7 +34,6 @@
 			</div>
 			<a href="personal_data.php" class="menuItem">Анкета</a>
 			<a href="application.php" class="menuItem">Заявка</a>
-			<a href="my_interests.php" class="menuItem">Мои интересы</a>
 		<?php 
 			if ( $user['status'] == 3 ) echo '<a href="certificate.php" class="menuItem">Сертификат</a>'
 		?>
