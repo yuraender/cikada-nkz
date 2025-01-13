@@ -25,22 +25,23 @@ $pdf->useTemplate($tpl, 0, 0, 210);
 $pdf-> AddFont('TimesNewRomanPSMT','','times.php'); 
 $pdf-> SetFont('TimesNewRomanPSMT','',12);
 
-$text = iconv('utf-8', 'windows-1251', $user['lname']);
+$uf_fio = $user['lname'] . ' ' . $user['fname'] . ' ' . $user['patronym'];
+$f_fio = iconv('utf-8', 'windows-1251', $uf_fio);
 
-$pdf->SetXY(40, 32);
-$pdf->Cell(100, 5, $text); 
+$uf_oblast_and_locality = 'обл. ' . $pData['oblast'] . ',    н.п. ' . $pData['locality'] . ', ';
+$f_oblast_and_locality = iconv('utf-8', 'windows-1251', $uf_oblast_and_locality);
 
-$text = iconv('utf-8', 'windows-1251', $user['fname']);
+$uf_other_locals = 'ул. ' . $pData['street'] . ',    д. ' . $pData['home'] . ',    кв. ' . $pData['apartment'];
+$f_other_locals = iconv('utf-8', 'windows-1251', $uf_other_locals);
 
-$pdf->SetXY(80, 32);
-$pdf->Cell(100, 5, $text); 
+$pdf->SetXY(31, 49);
+$pdf->Cell(100, 5, $f_fio); 
 
-$text = iconv('utf-8', 'windows-1251', $user['patronym']);
+$pdf->SetXY(77, 62);
+$pdf->Cell(100, 5, $f_oblast_and_locality); 
 
-$pdf->SetXY(120, 32);
-$pdf->Cell(100, 5, $text); 
-
-
+$pdf->SetXY(22, 68);
+$pdf->Cell(100, 5, $f_other_locals); 
 
 
 $pdf->Output('D', 'Soglasie.pdf'); 

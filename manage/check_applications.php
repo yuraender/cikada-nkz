@@ -43,7 +43,7 @@
 
 		<h2>Заявки участников</h2>
 
-		<a href="?status=6">Вывести отклонённые</a>
+		<a href="?status=5">Вывести отклонённые</a>
 		<br><br>
 
 		<table id="list_table">
@@ -59,7 +59,7 @@
   			<?php
   			$condition = '';
   			if ( isset($_GET['status']) ) {
-  				$condition = " AND User.status = " . $_GET['status'] . " GROUP BY User.id ";
+  				$condition = " AND Scan.status = " . $_GET['status'] . " GROUP BY Scan.id ";
   			}
 
   			$result = mysqli_query($ctn, "

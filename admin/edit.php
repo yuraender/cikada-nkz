@@ -49,18 +49,19 @@
 			<br><br>
 
 			Статус<br>
-			<input type="text" name="status" size="50" value="<?php echo $record["status"]; ?>">
-			
-			<ul style="list-style-type:none;">
-				<li>1 — Администратор</li>
-				<li>2 — Организатор</li>
-				<li>3 — Участник олимпиады</li>
-				<li>4 — Подана заявка</li>
-				<li>5 — Зарегистрированный пользователь</li>
-				<li>6 — Методист</li>
-			</ul>
+			<select name='status' method='POST'>
+				<option value='1' <?php if ($record["status"] == '1') echo 'selected'; ?>>Администратор</option>
+				<option value='2' <?php if ($record["status"] == '2') echo 'selected'; ?>>Организатор</option>
+				<option value='3' <?php if ($record["status"] == '3') echo 'selected'; ?>>Участник олимпиады</option>
+				<option value='4' <?php if ($record["status"] == '4') echo 'selected'; ?>>Подана заявка</option>
+				<option value='5' <?php if ($record["status"] == '5') echo 'selected'; ?>>Зарегистрированный пользователь</option>
+				<option value='6' <?php if ($record["status"] == '6') echo 'selected'; ?>>Методист</option>
+				
+				<option value='7' <?php if ($record["status"] == '7') echo 'selected'; ?>>Финалист</option>
+				<option value='8' <?php if ($record["status"] == '8') echo 'selected'; ?>>Участник</option>
+			</select>
 
-			<br>
+			<br><br>
 
 			
 			<input type="submit" value="Обновить запись" >

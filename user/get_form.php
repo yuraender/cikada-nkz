@@ -27,43 +27,38 @@ $pdf-> SetFont('TimesNewRomanPSMT','',12);
 
 $text = iconv('utf-8', 'windows-1251', $user['lname']);
 
-$pdf->SetXY(80, 74.5);
+$pdf->SetXY(80, 80);
 $pdf->Cell(100, 5, $text);
 
 $text = iconv('utf-8', 'windows-1251', $user['fname']);
 
-$pdf->SetXY(80, 80);
+$pdf->SetXY(80, 87);
 $pdf->Cell(100, 5, $text);
 
 
 $text = iconv('utf-8', 'windows-1251', $user['patronym']);
 
-$pdf->SetXY(80, 86);
+$pdf->SetXY(80, 93);
 $pdf->Cell(100, 5, $text);
 
 $text = iconv('utf-8', 'windows-1251', $pData['format_bday']);
 
-$pdf->SetXY(80, 92.5);
+$pdf->SetXY(80, 99);
 $pdf->Cell(100, 5, $text);
 
 
 //У.З.:
 
 
-$text = iconv('utf-8', 'windows-1251', $School['name']);
+$full_school = $School['town'] . ' ' . $School['name'];
 
-$pdf->SetXY(80, 100);
-$pdf->Cell(100, 5, $text);
-
-
-$text = iconv('utf-8', 'windows-1251', $School['town']);
-
-$pdf->SetXY(80, 105);
+$text = iconv('utf-8', 'windows-1251', $full_school);
+$pdf->SetXY(80, 106);
 $pdf->Cell(100, 5, $text);
 
 $text = iconv('utf-8', 'windows-1251', $pData['grade']." класс");
 
-$pdf->SetXY(80, 110);
+$pdf->SetXY(80, 113);
 $pdf->Cell(100, 5, $text);
 
 //Область
@@ -155,17 +150,17 @@ if ( count($fio) < 3 ) {
 
 $text = iconv('utf-8', 'windows-1251', $fio[0]);
 // Фамилия классрука 
-$pdf->SetXY(80, 244.5);
+$pdf->SetXY(80, 229);
 $pdf->Cell(100, 5, $text);
 
 $text = iconv('utf-8', 'windows-1251', $fio[1]);
 // Имя классрука 
-$pdf->SetXY(80, 250);
+$pdf->SetXY(80, 234);
 $pdf->Cell(100, 5, $text);
 
 $text = iconv('utf-8', 'windows-1251', $fio[2]);
 // Отчество классрука 
-$pdf->SetXY(80, 256);
+$pdf->SetXY(80, 239);
 $pdf->Cell(100, 5, $text);
 
 $pdf->Output('D', 'Zayavka.pdf'); 

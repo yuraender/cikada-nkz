@@ -30,9 +30,7 @@
 
 		<h2>Список участников</h2>
 
-		<a href="?status=3">Показать только участников с принятыми заявками</a> | 
-		<b><a href="?status=3&grade=middle">8–9 класс</a></b> | 
-		<b><a href="?status=3&grade=high">10–11 класс</a></b>
+		<a href="?status=3">Показать только участников с принятыми заявками</a>
 
 		<br><br>
 
@@ -52,16 +50,6 @@
   			$where_status = "";
   			if ( isset($_GET['status']) ) $where_status = "AND Scan.status = " . $_GET['status'];
 
-  			$where_grade = "";
-  			if ( isset($_GET['grade']) ) {
-  				switch ($_GET['grade']) {
-					case 'middle': $where_grade = ' AND ( grade LIKE "%8%" OR grade LIKE "%9%" )';
-					break;
-					case 'high': $where_grade = ' AND ( grade LIKE "%10%" OR grade LIKE "%11%" )';
-					break;
-				}
-  			}
-
   			$result = mysqli_query($ctn, "
   				SELECT User.*, DATE_FORMAT(created_at, '%d.%m.%Y %H:%i') as register_date,
   				Scan.status as scan_status, User.id as user_id, PersonalData.*, School.*
@@ -69,7 +57,7 @@
  					LEFT JOIN Scan ON User.id = Scan.u_id
 					LEFT JOIN PersonalData ON User.id = PersonalData.u_id
     				LEFT JOIN School ON school_id = School.id
-    				WHERE User.status > 2 AND User.status < 6 {$where_status} {$where_grade}
+    				WHERE User.status > 2 AND User.status < 6 {$where_status}
   					ORDER BY status, scan_status, lname, fname, patronym, register_date DESC
   			");
 

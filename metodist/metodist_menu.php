@@ -13,5 +13,7 @@
 	?>
 	</div>
 	<a href="grade_list.php" class="menuItem">Проставить баллы</a>
+	<a href="team_list.php" class="menuItem">Составление команд</a>
+	<a href="participant_status_list.php" class="menuItem">Определение финалистов</a>
 	<a href="/logout.php" class="menuItem">Выход</a>
 </div>

@@ -138,16 +138,11 @@ require_once 'metodist_redirect_logic.php';
 
 						}
 						?>
-
-						<tr>
-							<td><td><td><td><td><td>
-								<input type="submit" value="Сохранить оценки">
-
-							</form>
-
 						</table>
 
-					</div> 
-
+						<br>
+						<input type="submit" value="Сохранить оценки">
+					</form>
+			</div> 
 </body>
 </html>

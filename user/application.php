@@ -139,7 +139,6 @@ require_once 'user_pd_from_db.php';
 				if ( $School['town'] != ""  )  $ok++;
 				if ( $School['name'] != ""  )  $ok++;
 			}
-			if ( $pData['grade'] < 10 )  $ok++;
 			
 			echo "Заполнено полей анкеты: <b>";
 			echo $ok;

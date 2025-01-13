@@ -26,7 +26,7 @@ CREATE TABLE IF NOT EXISTS `AllowCheck` (
   KEY `task_id` (`task_id`),
   CONSTRAINT `AllowCheck_ibfk_1` FOREIGN KEY (`teacher_id`) REFERENCES `User` (`id`),
   CONSTRAINT `AllowCheck_ibfk_2` FOREIGN KEY (`task_id`) REFERENCES `Task` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- Data exporting was unselected.
 -- Dumping structure for table u0753756_nkz_db.Journal
@@ -50,6 +50,7 @@ CREATE TABLE IF NOT EXISTS `Journal` (
 CREATE TABLE IF NOT EXISTS `OnSite` (
   `u_id` int(10) unsigned NOT NULL,
   `token` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`u_id`),
   KEY `u_id` (`u_id`),
   CONSTRAINT `OnSite_ibfk_1` FOREIGN KEY (`u_id`) REFERENCES `User` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -94,7 +95,7 @@ CREATE TABLE IF NOT EXISTS `Result` (
   CONSTRAINT `Result_ibfk_1` FOREIGN KEY (`u_id`) REFERENCES `User` (`id`),
   CONSTRAINT `Result_ibfk_2` FOREIGN KEY (`teacher_id`) REFERENCES `User` (`id`),
   CONSTRAINT `Result_ibfk_3` FOREIGN KEY (`task_id`) REFERENCES `Task` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- Data exporting was unselected.
 -- Dumping structure for table u0753756_nkz_db.Scan
@@ -109,7 +110,7 @@ CREATE TABLE IF NOT EXISTS `Scan` (
   PRIMARY KEY (`id`),
   KEY `u_id` (`u_id`),
   CONSTRAINT `Scan_ibfk_1` FOREIGN KEY (`u_id`) REFERENCES `User` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 
 -- Data exporting was unselected.
 -- Dumping structure for table u0753756_nkz_db.School
@@ -118,7 +119,7 @@ CREATE TABLE IF NOT EXISTS `School` (
   `town` varchar(50) DEFAULT NULL,
   `name` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
 -- Data exporting was unselected.
 -- Dumping structure for table u0753756_nkz_db.Task
@@ -126,7 +127,17 @@ CREATE TABLE IF NOT EXISTS `Task` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `title` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
+
+-- Data exporting was unselected.
+-- Dumping structure for table u0753756_nkz_db.Team
+CREATE TABLE IF NOT EXISTS `Team` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) NOT NULL,
+  `status` enum('не выбрано','1 место','2 место','3 место') NOT NULL DEFAULT 'не выбрано',
+  `score` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
 -- Data exporting was unselected.
 -- Dumping structure for table u0753756_nkz_db.User
@@ -140,8 +151,11 @@ CREATE TABLE IF NOT EXISTS `User` (
   `psw_hash` binary(60) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `cert_saved_at` timestamp NULL DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8;
+  `team` int(10) unsigned DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FK_User_Team` (`team`),
+  CONSTRAINT `FK_User_Team` FOREIGN KEY (`team`) REFERENCES `Team` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=utf8;
 
 -- Data exporting was unselected.
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;

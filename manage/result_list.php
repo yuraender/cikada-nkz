@@ -44,8 +44,6 @@
 
 		<h2>Список результатов</h2>
 
-		<b><a href="?grade=eight">8 класс</a></b> | 
-		<b><a href="?grade=nine">9 класс</a></b> | 
 		<b><a href="?grade=ten">10 класс</a></b> | 
 		<b><a href="?grade=eleven">11 класс</a></b>
 
@@ -71,10 +69,6 @@
   			$where_grade = "";
   			if ( isset($_GET['grade']) ) {
   				switch ($_GET['grade']) {
-					case 'eight': $where_grade = ' AND ( grade LIKE "%8%" )';
-					break;
-					case 'nine': $where_grade = ' AND ( grade LIKE "%9%" )';
-					break;
 					case 'ten': $where_grade = ' AND ( grade LIKE "%10%" )';
 					break;
 					case 'eleven': $where_grade = ' AND ( grade LIKE "%11%" )';
